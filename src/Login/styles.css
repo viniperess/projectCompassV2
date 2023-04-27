@@ -16,7 +16,7 @@ height: 100vh;
 display: flex;
 }
 
-.boxForm {
+.boxFormLogin {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@ display: flex;
     justify-content: center;  
 }
   
-.form {
+.formLogin {
     width: 406px;
     height: 746px;
     margin-top: 100px;
@@ -35,7 +35,7 @@ p > a {
     font-weight: bold;
   }
   
-  .boxForm > h1 {
+  .boxFormLogin > h1 {
     width: 125px;
     height: 96px;
     margin-right: 290px;
@@ -45,7 +45,7 @@ p > a {
     margin-top: 100px;
   }
   
-  .boxForm > p {
+  .boxFormLogin > p {
     width: 406px;
     height: 24px;
   
@@ -54,7 +54,7 @@ p > a {
     line-height: 24px;
   }
   
-  .form > h3 {
+  .formLogin > h3 {
     width: 130px;
     height: 48px;
     font-weight: 400;
@@ -83,7 +83,7 @@ p > a {
     height: 112.95px;
   }
   
-  input {
+  .inputLogin {
     border: 1px solid white;
     border-radius: 46px;
     box-sizing: border-box;
@@ -102,7 +102,7 @@ p > a {
     color: white;
   }
   
-  button {
+  .btnLogin {
     width: 406px;
     height: 52px;
     background: linear-gradient(180deg, #ad2d14 0%, #f42e07 100%);
@@ -114,7 +114,7 @@ p > a {
     cursor: pointer;
   }
   
-  #user {
+  #userLogin {
     background-image: url(../image/people.png);
     background-repeat: no-repeat;
     align-items: center;
@@ -122,7 +122,7 @@ p > a {
     background-position: 95%;
   }
   
-  #password {
+  #passwordLogin {
     background-image: url(../image/lock.png);
     background-repeat: no-repeat;
     align-items: center;
@@ -158,7 +158,7 @@ p > a {
     font-size: 10px;
   }
   
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .form {
       width: 100%;
       display: flex;
@@ -248,4 +248,4 @@ p > a {
       height: 62px;
     }
   }
-  
+   */
