@@ -98,7 +98,8 @@
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
-    top: -10rem;
+    top: -0.88rem;
+    right: 1rem;
     position: relative;
 }
 
@@ -163,24 +164,17 @@
     border-radius: 8px;
 }
 
-/* .oldPost {
-    background-color: orange;
-    width: 20%;
-    height: 20%;
-    display: flex;
-} */
-
 .sideBarTop {
     display: flex;
     flex-direction: column;
     width: 17rem;
-    height: 19rem;
+    height: 15rem;
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
     position: relative;
-    top: -8rem;
-    right: 0.75rem;
+    top: -9rem;
+    right: -2.5rem;
 }
 
 .myFriends {
@@ -215,7 +209,8 @@
 
 .listFriends > li > p {
     /* width: 100%; */
-    margin: 5px 0 0 10px;
+    margin: 7px 0 0 10px;
+    font-size: 14px;
 }
 
 .listFriends > li > img {
@@ -223,4 +218,37 @@
     margin: 0 0 10px 10px;
     height: 35px;
     border-radius: 100%;
+}
+
+.oldPost {
+    width: 55vw;
+    height: 60vh;
+    background: #1E1F23;
+    border: 2px solid #2E2F36;
+    border-radius: 16px;
+}
+
+.sideBarMiddle {
+    display: flex;
+    width: 17rem;
+    height: 15rem;
+    background: #1E1F23;
+    border: 2px solid #2E2F36;
+    border-radius: 16px;
+    position: relative;
+    top: -17rem;
+    /* right: 2.5rem; */
+    left: 49.5rem;
+}
+
+.sideBarBottom{
+    display: flex;
+    width: 17rem;
+    height: 15rem;
+    background: #1E1F23;
+    border: 2px solid #2E2F36;
+    border-radius: 16px;
+    position: relative;
+    top: -0.5rem;
+    left: 32.5rem;
 }
