@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, {ChangeEvent, FormEvent, useState,useEffect} from "react";
 import Logo from "../image/compass_logo.png";
 import "./styles.css";
 import homeBar from "../image/home.png";
@@ -24,6 +24,26 @@ interface userProps {
     profile_photo: string
 }
 
+interface loginProps {
+  name: string,
+  profile_photo: string
+}
+
+
+interface postProps {
+  user: string,
+  post_date: Date | string,
+  description: string,
+  likes: number,
+  comments: commentProps[],
+  url_imagem: string
+}
+
+interface commentProps {
+  user: string,
+  comment: string
+}
+
 const Home: React.FC = () => {
 
     const [users, setUsers] = useState<userProps[]>([]);
@@ -38,6 +58,48 @@ const Home: React.FC = () => {
         fetchusers();
       }, []);
 
+      const [posts, setPosts] = useState<postProps[]>([]);
+      const fetchposts = async () => {
+          const response = await fetch(`http://localhost:5000/api/v1/user/post`);
+          const data = await response.json();
+          setPosts(data.posts);
+          console.log(data.posts);
+        };
+      
+        useEffect(() => {
+          fetchposts();
+        }, []);
+        
+      const  [newPosted, setNewPosted] = useState("");  
+      const login: loginProps[] =JSON.parse(localStorage.getItem("token")!);
+      
+      const posted = (e: FormEvent) => {
+          e.preventDefault();
+
+          const userPosted: string = login[0].name;
+          const photoPosted: string = login[0].profile_photo;
+          
+          const postDate: Date = new Date();
+
+          const post = {  
+            user: userPosted,
+            post_date: postDate,
+            description: newPosted,
+            likes: 0,
+            comments: [],
+            url_imagem: photoPosted
+          }
+
+          setPosts([post, ...posts]);
+
+          setNewPosted("");
+      };
+
+      const newText = (e: ChangeEvent<HTMLTextAreaElement>) => {
+          e.target.setCustomValidity("");
+          setNewPosted(e.target.value);
+      }
+
   return (
     <div className="container">
       <div className="logoLeft">
@@ -50,16 +112,18 @@ const Home: React.FC = () => {
             <p>Home</p>
           </div>
           <div className="homeUser">
-            <p>Username</p>
-            <img src={Pedro} alt="" />
+            <p>{login[0].name}</p>
+            <img src={login[0].profile_photo} alt="" />
           </div>
         </div>
-        <div className="posts">
+        {/* <div > */}
+        <form action="/" method="post" className="posts" onSubmit={posted}>
           <div className="newPost">
-            <img src={Pedro} alt="Imagem de Exibição do Usuário" />
+            <img src={login[0].profile_photo} alt="Imagem de Exibição do Usuário" />
+            
             <textarea
-              className="sendPost"
-              placeholder="No que você está pensando?"
+              className="sendPost" name="posted" value={newPosted}
+              placeholder="No que você está pensando?" onChange={newText}
             ></textarea>
           </div>
           <div className="postIcons">
@@ -76,12 +140,16 @@ const Home: React.FC = () => {
             </div>
             <button className="btnPost">Postar</button>
           </div>
-        </div>
-        <div className="oldPost">
+          </form>
+        {/* </div> */}
+        {posts.map(
+          (post, index) => {
+
+return <div className="oldPost" key={index}>            
             <div className="oldUserPost">
-                <img src={Pedro} alt="" />
+                <img src={post.url_imagem} alt="" />
                 <div className="oldPostText">
-                <p className="patricia">Patricia Menezes</p>
+                <p className="patricia">{post.user}</p>
                 <div className="timePost">
                 <img src={Time} alt="" />
                 <p className="timeOldPost">12 minutos atrás em </p>
@@ -90,7 +158,7 @@ const Home: React.FC = () => {
                 </div>
             </div>
             <div className="legendPost">
-                <p>Minha última viagem para a Ilha do Comendador, um lugar simplesmente incrível, natureza praticamente intocada. Recomendo a todos que apreciam o mundo como ele é.</p>
+                <p>{post.description}</p>
             </div>
             <div className="landscapeOldPost">
             </div>
@@ -98,13 +166,13 @@ const Home: React.FC = () => {
                 <div className="like">
                     <img src={Like} alt="" />
                     <p className="likesText">Curtiu</p>
-                    <p className="likesNumber">1.7k</p>
+                    <p className="likesNumber">{post.likes}</p>
                 </div>
                 <div className="comment">
                     <div className="commentPost">
                         <img src={Comment} alt="" />
                         <p className="commentText">Comentários</p>
-                        <p className="commentNumber">345</p>
+                        <p className="commentNumber">{post.comments ? post.comments.length : 0}</p>
                     </div>
                 </div>
                 <div className="share">
@@ -144,7 +212,9 @@ const Home: React.FC = () => {
             <div className="seeComments">
                 <p>Ver todos os comentários</p>
             </div>
-        </div>
+    </div>
+          }
+        )}
         <div className="sideBarTop">
           <p className="myFriends">Meus Amigos</p>
 
@@ -153,7 +223,7 @@ const Home: React.FC = () => {
             {users.map(
                   (user, i) =>
                 <li key={i}>
-                  <img src="https://source.unsplash.com/800x600/?profile" alt="" />  
+                  <img src={user.profile_photo} alt="" />  
                   <p>{user.name}</p>
                 </li>
                 )}

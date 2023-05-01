@@ -2,7 +2,7 @@
     "posts": [
     {
     "user": "anairschlinger",
-    "post date": "2023-04-22T10:15:00",
+    "post_date": "2023-04-22T10:15:00",
     "description": "A primavera chegou! ",
     "likes": 8,
     "comments": [
@@ -35,7 +35,7 @@
     },
     {
     "user": "denerborges",
-    "post date": "2023-04-19T12:00:00",
+    "post_date": "2023-04-19T12:00:00",
     "description": "Praia no outono é tudo de bom! " ,
     "likes": 20,
     "comments": [
@@ -52,13 +52,13 @@
     },
     {
     "user": "diegosuarez",
-    "post date": "2023-04-18T14:45:00",
+    "post_date": "2023-04-18T14:45:00",
     "description": "Mais um dia de trabalho concluído! " ,
     "likes": 6
     },
     {
     "user": "emanuellescortegagna",
-    "post date": "2023-04-17T09:30:00",
+    "post_date": "2023-04-17T09:30:00",
     "description": "Bom dia pessoal! " ,
     "likes": 15,
     "comments": [
@@ -75,7 +75,7 @@
     },
     {
     "user": "gabrielfiss",
-    "post date": "2023-04-16T21:00:00",
+    "post_date": "2023-04-16T21:00:00",
     "description": "Noite de jogos com a galera! ",
     "likes": 18,
     "comments": [
@@ -91,7 +91,7 @@
     },
     {
     "user": "gabrielgarcia",
-    "post date": "2023-04-15T16:20:00",
+    "post_date": "2023-04-15T16:20:00",
     "description": "Adoro visitar museus e ver obras incríveis como essa! ",
     "likes": 10,
     "comments": [
@@ -108,7 +108,7 @@
     },
     {
     "user": "isadorabrito",
-    "post date": "2023-04-14T08:00:00",
+    "post_date": "2023-04-14T08:00:00",
     "description": "Bom dia, galera! ",
     "likes": 25,
     "comments": [
@@ -124,7 +124,7 @@
     },
     {
     "user": "josevalerio",
-    "post date": "2023-04-12T19:30:00",
+    "post_date": "2023-04-12T19:30:00",
     "description": "Noite de futebol com a turma! ",
     "likes": 14,
     "comments": [
@@ -140,7 +140,7 @@
     },
     {
     "user": "josielmatos",
-    "post date": "2023-04-11T11:10:00",
+    "post_date": "2023-04-11T11:10:00",
     "description": "Trabalhando de casa hoje! ",
     "likes": 7,
     "comments": [
@@ -156,7 +156,7 @@
     },
     {
     "user": "kaianecardozo",
-    "post date": "2023-04-10T14:00:00",
+    "post_date": "2023-04-10T14:00:00",
     "description": "Meu novo visual! ",
     "likes": 23,
     "comments": [
@@ -173,7 +173,7 @@
     },
     {
     "user": "luizsureto",
-    "post date": "2023-04-08T21:15:00",
+    "post_date": "2023-04-08T21:15:00",
     "description": "Sextou! ",
     "likes": 31,
     "comments": [
@@ -189,7 +189,7 @@
     },
     {
     "user": "victorpithan",
-    "post date": "2023-04-07T13:00:00",
+    "post_date": "2023-04-07T13:00:00",
     "description": "Dia de almoçar com os amigos do trabalho! ",
     "likes": 16,
     "comments": [
@@ -206,7 +206,7 @@
     },
     {
     "user": "viniciusperes",
-    "post date": "2023-04-05T17:30:00",
+    "post_date": "2023-04-05T17:30:00",
     "description": "Dia de praia com a galera! ",
     "likes": 28,
     "comments": [
@@ -223,7 +223,7 @@
     },
     {
     "user": "yuricaetano",
-    "post date": "2023-04-03T22:00:00",
+    "post_date": "2023-04-03T22:00:00",
     "description": "Noite de karaokê com os amigos! ",
     "likes": 18,
     "comments": [
