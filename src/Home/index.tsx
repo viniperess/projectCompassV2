@@ -71,18 +71,9 @@ const Home: React.FC = () => {
         }, []);
       
 
-        const [comments, setComments] = useState<commentProps[]>([]);
-        const fetchcomments = async () => {
-            const response = await fetch(`http://localhost:5000/api/v1/user/post`);
-            const data = await response.json();
-            setComments(data.comments);
-            console.log(data.comments);
-          };
-        
-          useEffect(() => {
-            fetchcomments();
-          }, []);
-            
+    const [comments, setComments] = useState<commentProps[]>([]);
+
+
       const  [newPosted, setNewPosted] = useState("");  
       const login: loginProps[] =JSON.parse(localStorage.getItem("token")!);
       
@@ -159,6 +150,7 @@ const Home: React.FC = () => {
 
 return <div className="oldPost" key={index}>            
             <div className="oldUserPost">
+                
                 <img src={post.url_imagem} alt="" />
                 <div className="oldPostText">
                 <p className="patricia">{post.user}</p>
@@ -212,15 +204,19 @@ return <div className="oldPost" key={index}>
             <div className="allComments">
                 <p>Todos os comentários</p>
             </div>
-      
-     <div className="juniorComment" >
+
+            {post.comments && post.comments.map( 
+              (comment: commentProps, index) => {
+          
+       return <div className="juniorComment" key={index}>
                 <img src={Junior} alt="" />
                 <div className="junior">
-                    {/* <p className="juniorProfile"></p> */}
-                    {/* <p className="juniorMsg"><strong>{comment.user}:</strong> {comment.comment}</p> */}
+                    <p className="juniorProfile"></p>
+                    <p className="juniorMsg"><strong>{comment.user}:</strong> {comment.comment}</p>
                 </div> 
               </div>
-             
+              }
+   )}
             <div className="horizontal">
             </div>
             <div className="seeComments">

@@ -47,23 +47,14 @@ const correctLogin = users.filter((usersArray) => {
   return usersArray.user === user && usersArray.password === password;
 }); 
 
-console.log(correctLogin);
-
-
-  
-  // setIsValid(checkInputs());
   if (correctLogin.length !== 0) {
     localStorage.setItem("token", JSON.stringify(correctLogin));
     console.log(JSON.parse(localStorage.getItem("token")!));
     
     nav("/");
-    
-
-    // e.currentTarget.submit();
 
     return;
   }else {
-
     setIsValid(checkInputs());
   }
 };
@@ -103,10 +94,8 @@ const checkInputs = (): boolean => {
       )!.parentElement!;
       const passwordSmall = passwordControl.querySelector('small')!;
       passwordSmall.innerText = 'INVALID CREDENTIALS';
-      passwordControl.className = 'input_control error';
-    
+      passwordControl.className = 'input_control error';  
   }
-
   return isFormValid;
 };
 
