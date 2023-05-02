@@ -165,7 +165,7 @@ const Home: React.FC = () => {
               <p>{post.description}</p>
           </div>
           <div className="landscapeOldPost">
-            <img src={post.url_imagem} alt="" />
+            {/* <img src={post.url_imagem} alt="" /> */}
           </div>
           <div className="iterationsOldPost">
               <div className="like">
