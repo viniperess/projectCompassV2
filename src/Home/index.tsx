@@ -69,7 +69,20 @@ const Home: React.FC = () => {
         useEffect(() => {
           fetchposts();
         }, []);
+      
+
+        const [comments, setComments] = useState<commentProps[]>([]);
+        const fetchcomments = async () => {
+            const response = await fetch(`http://localhost:5000/api/v1/user/post`);
+            const data = await response.json();
+            setComments(data.comments);
+            console.log(data.comments);
+          };
         
+          useEffect(() => {
+            fetchcomments();
+          }, []);
+            
       const  [newPosted, setNewPosted] = useState("");  
       const login: loginProps[] =JSON.parse(localStorage.getItem("token")!);
       
@@ -116,7 +129,7 @@ const Home: React.FC = () => {
             <img src={login[0].profile_photo} alt="" />
           </div>
         </div>
-        {/* <div > */}
+      
         <form action="/" method="post" className="posts" onSubmit={posted}>
           <div className="newPost">
             <img src={login[0].profile_photo} alt="Imagem de Exibição do Usuário" />
@@ -141,7 +154,6 @@ const Home: React.FC = () => {
             <button className="btnPost">Postar</button>
           </div>
           </form>
-        {/* </div> */}
         {posts.map(
           (post, index) => {
 
@@ -200,21 +212,26 @@ return <div className="oldPost" key={index}>
             <div className="allComments">
                 <p>Todos os comentários</p>
             </div>
-            <div className="juniorComment">
+      
+     <div className="juniorComment" >
                 <img src={Junior} alt="" />
                 <div className="junior">
                     {/* <p className="juniorProfile"></p> */}
-                    <p className="juniorMsg"><strong>Junior Saraiva:</strong> Que bela paisagem! As cores são simplesmente deslumbrantes e a composição é maravilhosa. Essa foto é uma verdadeira obra de arte que captura a beleza natural do nosso mundo. É fascinante ver como a natureza pode ser tão impressionante e inspiradora. Agradeço por compartilhar esta imagem conosco!</p>
+                    {/* <p className="juniorMsg"><strong>{comment.user}:</strong> {comment.comment}</p> */}
                 </div> 
-            </div>
+              </div>
+             
             <div className="horizontal">
             </div>
             <div className="seeComments">
                 <p>Ver todos os comentários</p>
-            </div>
-    </div>
+                       </div>
+     </div>
+
+    
           }
         )}
+         
         <div className="sideBarTop">
           <p className="myFriends">Meus Amigos</p>
 
@@ -237,7 +254,7 @@ return <div className="oldPost" key={index}>
         <div className="sideBarBottom">
 
         </div>
-
+        
       </div>
     </div>
   );

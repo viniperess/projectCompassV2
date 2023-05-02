@@ -10,6 +10,11 @@
   box-sizing: border-box;
 }
 
+body {
+    background: linear-gradient(180deg, #2E2F36 0%, #17181C 100%);
+    position: static;
+}
+
 .container {
     display: flex;
     width: 100%;
@@ -35,6 +40,7 @@
     flex-direction: row;
     background: #1E1F23;
     border: 2px solid #2E2F36;
+    position:initial;
 }
 
 .logoLeft > img {
@@ -172,9 +178,11 @@
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
-    position: relative;
-    top: -9rem;
-    right: -2.5rem;
+    position: absolute;
+    /* top: -600rem; */
+    float: right;
+    top: 6.7rem;
+    right: 1.5rem;
 }
 
 .myFriends {
@@ -232,9 +240,11 @@
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
-    position: relative;
-    top: -41.5rem;
-    left: 49.5rem;
+    position: absolute;
+
+    float: right;
+    top: 22.7rem;
+    right: 1.4rem;
 }
 
 .sideBarBottom{
@@ -244,9 +254,11 @@
     background: #1E1F23;
     border: 2px solid #2E2F36;
     border-radius: 16px;
-    position: relative;
-    top: -25.2rem;
-    left: 32.5rem;
+    position: absolute;
+
+    float: right;
+    top: 39rem;
+    right: 1.4rem;
 }
 
 .oldPost {
@@ -261,6 +273,7 @@
     position: relative;
     left: 0.95rem;
     display: flex;
+    margin-bottom: 20px;
 }
 
 .oldUserPost {

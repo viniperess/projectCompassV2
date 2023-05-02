@@ -22,7 +22,7 @@ const Login: React.FC = () => {
 
 const [user, setUser] = useState('');
 const [password, setPassword] = useState('');
-// const [isFormValid, setIsValid] = useState(false);
+const [isFormValid, setIsValid] = useState(false);
 
 const [users, setUsers] = useState<userProps[]>([]);
 const fetchusers = async () => {
@@ -62,66 +62,53 @@ console.log(correctLogin);
     // e.currentTarget.submit();
 
     return;
+  }else {
+
+    setIsValid(checkInputs());
   }
 };
 
-// const checkInputs = (): boolean => {
-//   let isFormValid = true;
+const checkInputs = (): boolean => {
+  let isFormValid = true;
   
-//   if (!user.trim().length) {
-//     isFormValid = false;
-//     const userControl = document.getElementById('userLogin')!.parentElement!;
-//     const userSmall = userControl.querySelector('small')!;
-//     userSmall.innerText = 'EMPTY FIELD';
-//     userControl.className = 'input_control error';
-//   } else {
-//       if (user) {
-//         const userControl = document.getElementById('userLogin')!.parentElement!;
-//         const userSmall = userControl.querySelector('small')!;
-//         userSmall.innerText = 'SUCCESS';
-//         userControl.className = 'input_control success';
-//     } else {
-//         isFormValid = false;
-//         const userControl = document.getElementById(
-//           'userLogin'
-//         )!.parentElement!;
-//         const userSmall = userControl.querySelector('small')!;
-//         userSmall.innerText = 'INVALID CREDENTIALS';
-//         userControl.className = 'input_control error';
-//       }
-//     }
+  if (!user.trim().length) {
+    isFormValid = false;
+    const userControl = document.getElementById('userLogin')!.parentElement!;
+    const userSmall = userControl.querySelector('small')!;
+    userSmall.innerText = 'EMPTY FIELD';
+    userControl.className = 'input_control error';
+  } else {
+        isFormValid = false;
+        const userControl = document.getElementById(
+          'userLogin'
+        )!.parentElement!;
+        const userSmall = userControl.querySelector('small')!;
+        userSmall.innerText = 'INVALID CREDENTIALS';
+        userControl.className = 'input_control error';
+      }
+    
 
-//   if (!password.trim().length) {
-//     isFormValid = false;
-//     const passwordControl = document.getElementById(
-//       'passwordLogin'
-//     )!.parentElement!;
-//     const passwordSmall = passwordControl.querySelector('small')!;
-//     passwordSmall.innerText = 'EMPTY FIELD';
-//     passwordControl.className = 'input_control error';
-//   } else {
-//     if (password) {
-//       const passwordControl = document.getElementById(
-//         'passwordLogin'
-//       )!.parentElement!;
-//       const passwordSmall = passwordControl.querySelector('small')!;
-//       passwordSmall.innerText = 'SUCCESS';
-//       passwordControl.className = 'input_control success';
-      
-//     } 
-//     else {
-//       isFormValid = false;
-//       const passwordControl = document.getElementById(
-//         'passwordLogin'
-//       )!.parentElement!;
-//       const passwordSmall = passwordControl.querySelector('small')!;
-//       passwordSmall.innerText = 'INVALID CREDENTIALS';
-//       passwordControl.className = 'input_control error';
-//     }
-//   }
+  if (!password.trim().length) {
+    isFormValid = false;
+    const passwordControl = document.getElementById(
+      'passwordLogin'
+    )!.parentElement!;
+    const passwordSmall = passwordControl.querySelector('small')!;
+    passwordSmall.innerText = 'EMPTY FIELD';
+    passwordControl.className = 'input_control error';
+  } else { 
+      isFormValid = false;
+      const passwordControl = document.getElementById(
+        'passwordLogin'
+      )!.parentElement!;
+      const passwordSmall = passwordControl.querySelector('small')!;
+      passwordSmall.innerText = 'INVALID CREDENTIALS';
+      passwordControl.className = 'input_control error';
+    
+  }
 
-//   return isFormValid;
-// };
+  return isFormValid;
+};
 
   return (
     <div className='container'>
