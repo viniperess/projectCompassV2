@@ -4,7 +4,7 @@ to clone the repository:
 https://github.com/viniperess/projectCompassV2.git
 
 Second step open cmd and navigate to the folder directory:
-cd compass_challenge_1
+cd projectv2
 
 Third step install the dependencies:
 npm install
