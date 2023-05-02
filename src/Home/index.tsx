@@ -151,12 +151,12 @@ const Home: React.FC = () => {
 return <div className="oldPost" key={index}>            
             <div className="oldUserPost">
                 
-                <img src={post.url_imagem} alt="" />
+                <img src={users.find(user => user.user === post.user)?.profile_photo} alt="" />
                 <div className="oldPostText">
                 <p className="patricia">{post.user}</p>
                 <div className="timePost">
                 <img src={Time} alt="" />
-                <p className="timeOldPost">12 minutos atrás em </p>
+                <p className="timeOldPost">{new Date(post.post_date).toLocaleString()}</p>
                 <p className="strongOldPost">Paisagens Exuberantes</p>
                 </div>
                 </div>
@@ -165,6 +165,7 @@ return <div className="oldPost" key={index}>
                 <p>{post.description}</p>
             </div>
             <div className="landscapeOldPost">
+              <img src={post.url_imagem} alt="" />
             </div>
             <div className="iterationsOldPost">
                 <div className="like">
@@ -204,12 +205,12 @@ return <div className="oldPost" key={index}>
             <div className="allComments">
                 <p>Todos os comentários</p>
             </div>
-
-            {post.comments && post.comments.map( 
+  
+            { post.comments && post.comments.map( 
               (comment: commentProps, index) => {
           
        return <div className="juniorComment" key={index}>
-                <img src={Junior} alt="" />
+                <img src={users.find(user => comment.user === user.user)?.profile_photo} alt={post.user} />
                 <div className="junior">
                     <p className="juniorProfile"></p>
                     <p className="juniorMsg"><strong>{comment.user}:</strong> {comment.comment}</p>
@@ -217,7 +218,8 @@ return <div className="oldPost" key={index}>
               </div>
               }
    )}
-            <div className="horizontal">
+    
+    <div className="horizontal">
             </div>
             <div className="seeComments">
                 <p>Ver todos os comentários</p>
